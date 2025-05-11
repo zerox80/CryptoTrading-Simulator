@@ -70,7 +70,7 @@ Before you begin, ensure you have the following installed on your system:
 1.  **Clone the repository:**
     Open your terminal or command prompt and run the following command:
     ```bash
-    git clone https://github.com/zerox80/CoinGecko-WebApp.git
+    git clone https://github.com/zerox80/CryptoTrading-Simulator.git
     ```
 2.  **Navigate to the project directory:**
     ```bash

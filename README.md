@@ -1,6 +1,7 @@
 # My Crypto Price Viewer
 
 ![Java](https://img.shields.io/badge/Java-21-blue.svg) ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.5-brightgreen.svg) ![Maven](https://img.shields.io/badge/Maven-orange.svg) ![License](https://img.shields.io/badge/License-GPLv3-blue.svg)
+![image](https://github.com/user-attachments/assets/c1cb8c6e-77f0-44b5-b0d9-5724f95da014)
 
 Hey there! 👋
 

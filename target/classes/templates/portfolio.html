@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/modern-dark.css}">
+</head>
+<body>
+<div class="container">
+
+    <div class="d-flex justify-content-between align-items-center portfolio-header">
+        <h2>My Portfolio</h2>
+        <div>
+            <a th:href="@{/}" class="btn btn-info mr-2">Back to Market</a>
+            <form th:action="@{/logout}" method="post" style="display: inline;">
+                <input type="hidden" th:name="${_csrf != null ? _csrf.parameterName : '_csrf'}" th:value="${_csrf != null ? _csrf.token : ''}"/>
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
+        </div>
+    </div>
+
+    <div th:if="${errorMessage}" class="alert alert-danger" role="alert" th:text="${errorMessage}"></div>
+    <div th:if="${successMessage}" class="alert alert-success" role="alert" th:text="${successMessage}"></div>
+    <div th:if="${warningMessage}" class="alert alert-warning" role="alert" th:text="${warningMessage}"></div>
+
+    <div th:if="${portfolio}">
+        <div class="card mb-4">
+            <div class="card-header">
+                Portfolio Overview
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    Cash Balance: <span class="balance-highlight" th:text="${#numbers.formatDecimal(userBalance, 1, 'POINT', 2, 'COMMA')} + ' ' + ${portfolioCurrency}"></span>
+                </p>
+                <p class="card-text">
+                    Total Portfolio Value: <span class="balance-highlight" th:text="${#numbers.formatDecimal(totalPortfolioValue, 1, 'POINT', 2, 'COMMA')} + ' ' + ${portfolioCurrency}"></span>
+                </p>
+            </div>
+        </div>
+
+        <h4>My Crypto Assets</h4>
+
+        <th:block th:if="${portfolioAssets != null}">
+            <div th:if="${isPortfolioEmpty}" class="alert alert-info empty-portfolio" role="alert">
+                You do not own any crypto assets yet. Start by buying some from the market!
+            </div>
+
+            <table class="table table-hover" th:unless="${isPortfolioEmpty}">
+                <thead class="thead-light">
+                <tr>
+                    <th>Name</th>
+                    <th>Symbol</th>
+                    <th>Amount</th>
+                    <th>Avg. Purchase Price</th>
+                    <th>Current Price</th>
+                    <th>Current Market Value</th>
+                    <th>Profit/Loss</th>
+                    <th>Profit/Loss (%)</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="asset : ${portfolioAssets}">
+                    <td th:text="${asset.cryptocurrencyName}">Bitcoin</td>
+                    <td th:text="${asset.cryptocurrencySymbol.toUpperCase()}">BTC</td>
+                    <td th:text="${#numbers.formatDecimal(asset.amount, 1, 'POINT', 4, 'COMMA')}">1.0000</td>
+                    <td th:text="${#numbers.formatDecimal(asset.averagePurchasePrice, 1, 'POINT', 2, 'COMMA')} + ' ' + ${portfolioCurrency}">50000.00 EUR</td>
+                    <td th:text="${#numbers.formatDecimal(asset.currentPrice, 1, 'POINT', 2, 'COMMA')} + ' ' + ${portfolioCurrency}">60000.00 EUR</td>
+                    <td th:text="${#numbers.formatDecimal(asset.currentMarketValue, 1, 'POINT', 2, 'COMMA')} + ' ' + ${portfolioCurrency}">60000.00 EUR</td>
+                    <td>
+                        <span th:if="${asset.profitOrLoss != null}" 
+                              th:text="${#numbers.formatDecimal(asset.profitOrLoss, 1, 'POINT', 2, 'COMMA')} + ' ' + ${portfolioCurrency}" 
+                              th:class="${asset.profitOrLoss.compareTo(T(java.math.BigDecimal).ZERO) >= 0 ? 'profit' : 'loss'}">10000.00 EUR</span>
+                        <span th:unless="${asset.profitOrLoss != null}">N/A</span>
+                    </td>
+                    <td>
+                        <span th:if="${asset.profitOrLossPercentage != null}" 
+                              th:text="${#numbers.formatDecimal(asset.profitOrLossPercentage, 1, 'POINT', 2, 'COMMA')} + ' %'" 
+                              th:class="${asset.profitOrLossPercentage.compareTo(T(java.math.BigDecimal).ZERO) >= 0 ? 'profit' : 'loss'}">20.00 %</span>
+                        <span th:unless="${asset.profitOrLossPercentage != null}">N/A</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </th:block>
+        
+        <th:block th:if="${portfolioAssets == null}">
+             <div class="alert alert-warning" role="alert">
+                Portfolio data is currently unavailable or incomplete.
+            </div>
+        </th:block>
+
+    </div>
+
+</div>
+</body>
+</html> 

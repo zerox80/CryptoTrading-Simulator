@@ -1,0 +1,388 @@
+/* modern-dark.css */
+body {
+    background-color: #1a1a2e; /* Dark blue-ish background */
+    color: #e0e0e0; /* Light grey text */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+}
+
+h2 {
+    color: #f0f0f0; /* Lighter heading color */
+    border-bottom: 2px solid #f9a826; /* Accent color for underline */
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem !important;
+}
+
+/* --- Navbar/Header Elements --- */
+.form-inline label {
+    color: #c0c0c0; /* Lighter label color */
+}
+
+.form-control {
+    background-color: #2c2c3e; /* Darker input fields */
+    color: #e0e0e0;
+    border: 1px solid #4a4a5e;
+}
+
+.form-control:focus {
+    background-color: #3a3a4e;
+    color: #f0f0f0;
+    border-color: #f9a826; /* Accent color on focus */
+    box-shadow: 0 0 0 0.2rem rgba(249, 168, 38, 0.25); /* Accent glow */
+}
+
+.btn-primary {
+    background-color: #f9a826; /* Accent color */
+    border-color: #f9a826;
+    color: #1a1a2e; /* Dark text on accent button */
+}
+
+.btn-primary:hover {
+    background-color: #e09915;
+    border-color: #e09915;
+    color: #1a1a2e;
+}
+
+.btn-success {
+    background-color: #28a745; /* Keep success green, but maybe a bit adjusted */
+    border-color: #28a745;
+    color: #fff;
+}
+
+.btn-success:hover {
+    background-color: #1e7e34;
+    border-color: #1e7e34;
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Keep danger red */
+    border-color: #dc3545;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #b02a37;
+    border-color: #b02a37;
+}
+
+/* --- Crypto Cards --- */
+.crypto-card .card {
+    background-color: #232334; /* Slightly lighter card background */
+    border: 1px solid #3a3a4e; /* Subtle border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Softer shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.crypto-card .card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 25px rgba(249, 168, 38, 0.15); /* Accent shadow on hover */
+}
+
+.crypto-card .card-title {
+    color: #f9a826; /* Accent color for card titles */
+    font-weight: bold;
+}
+
+.crypto-card .card-text {
+    color: #b0b0c0; /* Softer text color for details */
+    font-size: 0.9rem;
+}
+
+.crypto-card img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    border-radius: 50%; /* Circular images */
+    border: 2px solid #f9a826; /* Accent border for images */
+}
+
+.price-change.positive {
+    color: #4caf50; /* Brighter green */
+    font-weight: bold;
+}
+
+.price-change.negative {
+    color: #f44336; /* Brighter red */
+    font-weight: bold;
+}
+
+.buy-form {
+    margin-top: 15px;
+}
+
+.buy-form .form-control-sm {
+    max-width: 100px; /* Adjusted width */
+    background-color: #2c2c3e;
+    color: #e0e0e0;
+    border: 1px solid #4a4a5e;
+    height: calc(1.5em + .5rem + 2px);
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+}
+
+.buy-form .btn-sm {
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+    color: #1a1a2e; /* Dark text on accent button */
+}
+
+/* --- Alerts --- */
+.alert {
+    border-radius: 8px;
+    border-width: 0px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.alert-warning {
+    background-color: #4d3a19; /* Darker warning */
+    color: #ffcc80;
+    border-left: 5px solid #f9a826;
+}
+
+.alert-danger {
+    background-color: #4d1f1f; /* Darker danger */
+    color: #ff9a9a;
+     border-left: 5px solid #dc3545;
+}
+
+/* General responsive adjustments if needed */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.75rem;
+    }
+    .form-inline {
+        flex-direction: column;
+        align-items: stretch !important;
+    }
+    .form-inline .form-group {
+        margin-bottom: 0.5rem;
+        margin-right: 0 !important;
+    }
+    .form-inline .btn {
+        width: 100%;
+    }
+    .d-flex.justify-content-between.align-items-center {
+        flex-direction: column;
+    }
+    .d-flex.justify-content-between.align-items-center > form,
+    .d-flex.justify-content-between.align-items-center > div {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+     .d-flex.justify-content-between.align-items-center > div > .btn{
+        width: calc(50% - 0.5rem); /* Adjust button width for two buttons side-by-side */
+    }
+    .d-flex.justify-content-between.align-items-center > div > form {
+        display: inline-block !important;
+        width: calc(50% - 0.5rem);
+    }
+    .d-flex.justify-content-between.align-items-center > div > form > .btn{
+        width: 100%;
+    }
+}
+
+/* --- Portfolio Page Specific Styles --- */
+.portfolio-header h2 {
+    border-bottom: 2px solid #f9a826; /* Consistent with index.html h2 */
+    padding-bottom: 0.5rem;
+}
+
+.card.mb-4 {
+    background-color: #232334; /* Dark card background */
+    border: 1px solid #3a3a4e;
+    border-radius: 10px;
+}
+
+.card-header {
+    background-color: #2c2c3e; /* Slightly darker card header */
+    color: #f0f0f0;
+    border-bottom: 1px solid #3a3a4e;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.card-body .card-text {
+    color: #c0c0c0;
+}
+
+.balance-highlight {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f9a826; /* Accent color for balance */
+}
+
+.table {
+    background-color: #232334; /* Dark background for table */
+    color: #e0e0e0; /* Light text for table */
+    border-radius: 8px; /* Rounded corners for table */
+    overflow: hidden; /* Ensures border-radius clips content */
+    margin-top: 1.5rem;
+}
+
+.table thead.thead-light th {
+    background-color: #2c2c3e; /* Darker header for table */
+    color: #f0f0f0;
+    border-bottom: 2px solid #3a3a4e;
+    border-top: none; /* Remove default top border */
+}
+
+.table th,
+.table td {
+    border-color: #3a3a4e; /* Darker borders for table cells */
+    vertical-align: middle;
+    padding: 0.9rem 0.75rem;
+}
+
+.table tbody tr:hover {
+    background-color: #2c2c3e; /* Darker row on hover */
+    color: #f5f5f5; /* Slightly lighter text on hover */
+}
+
+.table .profit {
+    color: #4caf50; /* Brighter green for profit */
+    font-weight: bold;
+}
+
+.table .loss {
+    color: #f44336; /* Brighter red for loss */
+    font-weight: bold;
+}
+
+.btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: #fff;
+}
+
+.btn-info:hover {
+    background-color: #117a8b;
+    border-color: #117a8b;
+}
+
+.alert-info {
+    background-color: #1c3e4d; /* Darker info alert */
+    color: #90c5de;
+    border-left: 5px solid #17a2b8;
+    border-width: 0px 0px 0px 5px;
+    border-radius: 8px;
+}
+
+/* --- Auth Page (Login/Register) Specific Styles --- */
+.dark-theme-auth-body {
+    background-color: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.login-container, /* Used in login.html */
+.register-container { 
+    background-color: #1e1e1e; 
+    padding: 2rem 3rem; 
+    border-radius: 15px; 
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); 
+    width: 100%;
+    max-width: 450px; 
+}
+
+/* For register.html, which uses .container > .row > .col-md-6 > .card */
+.dark-theme-auth-body .card {
+    background-color: #1e1e1e;
+    border: none; 
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme-auth-body .card-header {
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    border-bottom: 1px solid #333;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.dark-theme-auth-body .card-body {
+    padding: 2rem;
+}
+
+.dark-theme-auth-body h2 {
+    color: #f0f0f0;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 1.5rem !important;
+}
+
+.dark-theme-auth-body .form-label {
+    color: #c0c0c0;
+    margin-bottom: .3rem;
+}
+
+.dark-theme-auth-body .form-control {
+    background-color: #2c2c3e;
+    color: #e0e0e0;
+    border: 1px solid #4a4a5e;
+    border-radius: 8px;
+}
+
+.dark-theme-auth-body .form-control:focus {
+    background-color: #3a3a4e;
+    color: #f0f0f0;
+    border-color: #f9a826;
+    box-shadow: 0 0 0 0.2rem rgba(249, 168, 38, 0.25);
+}
+
+.dark-theme-auth-body .btn-primary {
+    background-color: #f9a826;
+    border-color: #f9a826;
+    color: #1a1a2e;
+    font-weight: bold;
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.dark-theme-auth-body .btn-primary:hover {
+    background-color: #e09915;
+    border-color: #e09915;
+    color: #1a1a2e;
+}
+
+.dark-theme-auth-body .alert-danger {
+    background-color: #4d1f1f;
+    color: #ff9a9a;
+    border-left: 5px solid #dc3545;
+    border-radius: 8px;
+}
+
+.dark-theme-auth-body .alert-success {
+    background-color: #1e4d2b;
+    color: #a3d9b8;
+    border-left: 5px solid #28a745;
+    border-radius: 8px;
+}
+
+.dark-theme-auth-body a {
+    color: #f9a826;
+}
+
+.dark-theme-auth-body a:hover {
+    color: #e09915;
+    text-decoration: underline;
+}
+
+.empty-portfolio {
+    font-style: italic;
+} 
